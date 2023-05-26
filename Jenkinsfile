@@ -92,7 +92,7 @@ pipeline {
                 if (run_second_repo) {
                     dir('<SECOND_REPOSITORY_DIRECTORY>') {
                         git checkout "${params.branch_name}"
-                        sh "mvn versions:set -DnewVersion='${params.branch_name}-SNAPSHOT'
+                        sh "mvn versions:set -DnewVersion='${params.branch_name}-SNAPSHOT'"
                         git commit -am "Updated version in pom file"
                         git push origin "${params.branch_name}"
 
