@@ -11,7 +11,11 @@ pipeline {
         stage('Create Branch') {
             steps {
                 script {
-                    bat "Script executed from: ${PWD}"
+                    def branchName = params.BRANCH_NAME
+                    git url: params.REPOSITORY_URL
+                    checkout branch: branchName
+                    git branch: branchName, changelog: false, poll: false
+                    "$pwd"
                 }
             }
         }
