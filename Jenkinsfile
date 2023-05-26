@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout and Build') {
             steps {
-                   echo "checking out the main"
+                echo "checking out the ${env.BRANCH_NAME}"
             }
         }
     }
