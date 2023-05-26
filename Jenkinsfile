@@ -18,15 +18,6 @@ pipeline {
             }
         }
 
-        stage('Update Pom Version') {
-            steps {
-                script {
-                    def pomVersion = params.POM_VERSION
-                    sh "mvn versions:set -DnewVersion=${pomVersion}"
-                }
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'mvn clean install'
