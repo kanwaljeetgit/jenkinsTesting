@@ -4,6 +4,7 @@ pipeline {
     parameters {
         string(name: 'BRANCH_NAME', defaultValue: 'new-branch', description: 'Name of the branch to create')
         string(name: 'POM_VERSION', defaultValue: '1.0.0', description: 'Version to update in pom.xml')
+        string(name: 'REPOSITORY_URL', defaultValue: '1.0.0', description: 'Version to update in pom.xml')
     }
 
     stages {
@@ -11,6 +12,8 @@ pipeline {
             steps {
                 script {
                     def branchName = params.BRANCH_NAME
+                    git url: ${REPOSITORY_URL}
+                    checkout branch: branchName
                     git branch: branchName, changelog: false, poll: false
                 }
             }
