@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
                     def branchName = params.BRANCH_NAME
-                    git url: ${REPOSITORY_URL}
+                    git url: params.REPOSITORY_URL
                     checkout branch: branchName
                     git branch: branchName, changelog: false, poll: false
                 }
