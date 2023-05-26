@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout and Build') {
             steps {
-                   echo "checking out the "BRNACH_NAME
+                   echo "checking out the main"
             }
         }
     }
