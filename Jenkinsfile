@@ -11,7 +11,7 @@ pipeline {
         stage('Create Branch') {
             steps {
                 script {
-                    sh '''
+                    bat '''
                       echo "Script executed from: ${PWD}"
                     '''
                 }
